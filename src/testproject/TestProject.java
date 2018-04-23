@@ -19,7 +19,7 @@ public class TestProject {
      * @param args the command line arguments
      */
     public static List<TeamGroup> existingTeamGroups = new ArrayList<TeamGroup>();
-    public static int noOfMatchUps=2;
+    public static int noOfMatchUps=5;
     public static void main(String[] args) {
         // TODO code application logic here
         
@@ -36,14 +36,18 @@ public class TestProject {
     for(int i=0;i< teamGroups.size() && b;i++)
     System.out.println(teamGroups.get(i));
     createMatchUps(teamGroups);
-    Collections.shuffle(teams);
+    
+    
+     for(int i=0;i<=1000 && noOfMatchUps >0 ;i++){
     teamGroups.clear();
-     b= fillTeamGroups(teams,teamGroups,existingTeamGroups);
-    for(int i=0;i< teamGroups.size() && b;i++)
-    System.out.println(teamGroups.get(i));
-    System.out.println("Existing team groups");
-    if(b)
-        createMatchUps(teamGroups);
+         Collections.shuffle(teams);
+      b= fillTeamGroups(teams,teamGroups,existingTeamGroups);
+     if(b){
+    createMatchUps(teamGroups); 
+    noOfMatchUps--;
+     }
+     
+     }
                                             
     }   
 
